@@ -4,3 +4,27 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - uri: http://sb-service-registry:8761
+              predicates:
+                - Path=/service-registry/**
+              filters:
+                - StripPrefix=1
+            - uri: http://sb-db:5432
+              predicates:
+                - Path=/db/**
+              filters:
+                - StripPrefix=1
+            - uri: http://sb-localstack:4566
+              predicates:
+                - Path=/localstack/**
+              filters:
+                - StripPrefix=1
+            - uri: http://sb-service-registry:8761
+              predicates:
+              - Path=/eureka/**
