@@ -10,14 +10,17 @@ spring:
       server:
         webflux:
           routes:
+            - uri: lb://subject-trainer
+              predicates:
+                - Path=/subjects/**,/chapters/**
+            - uri: lb://topic-trainer
+              predicates:
+                - Path=/topics/**
+
+            # docker routes
             - uri: http://sb-service-registry:8761
               predicates:
                 - Path=/service-registry/**
-              filters:
-                - StripPrefix=1
-            - uri: http://sb-db:5432
-              predicates:
-                - Path=/db/**
               filters:
                 - StripPrefix=1
             - uri: http://sb-localstack:4566
