@@ -12,7 +12,7 @@ spring:
           routes:
             - uri: lb://subject-trainer
               predicates:
-                - Path=/subjects/**,/chapters/**
+                - Path=/scratch/**,/subjects/**,/chapters/**
             - uri: lb://topic-trainer
               predicates:
                 - Path=/topics/**,/messages/**
