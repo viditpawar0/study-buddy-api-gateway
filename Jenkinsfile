@@ -3,7 +3,7 @@ pipeline {
 
 	tools {
 		jdk 'jdk21'
-		DockerTool 'docker'
+		DockerTool 'docker@latest'
 	}
 
 	stages {
