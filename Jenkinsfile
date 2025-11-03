@@ -8,7 +8,7 @@ pipeline {
 				sh 'java -version'
 
 				echo 'Building...'
-				sh './gradlew bootJar'
+				//sh './gradlew bootJar'
 			}
 		}
 
