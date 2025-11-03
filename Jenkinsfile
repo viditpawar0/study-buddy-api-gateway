@@ -15,7 +15,7 @@ pipeline {
 				echo 'Jar build completed successfully'
 
 				echo 'Building Docker image...'
-				sh 'docker build -t viditpawar/study-buddy-api-gateway --platform linux/amd64,linux/arm64 .'
+				dev image = docker.build('viditpawar/study-buddy-api-gateway', '--platform linux/amd64,linux/arm64')
 				echo 'Docker image build completed successfully'
 			}
 		}
