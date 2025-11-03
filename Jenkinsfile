@@ -1,5 +1,10 @@
 pipeline {
-	agent any
+	agent {
+		docker {
+			image 'docker:latest'  // Use Docker CLI inside the container
+			args '-v /var/run/docker.sock:/var/run/docker.sock' // Access host Docker
+		}
+	}
 
 	tools {
 		jdk 'jdk21'
