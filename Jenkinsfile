@@ -1,10 +1,5 @@
 pipeline {
-	agent {
-		docker {
-			image 'docker:latest'  // Use Docker CLI inside the container
-			args '-v /var/run/docker.sock:/var/run/docker.sock' // Access host Docker
-		}
-	}
+	agent any
 
 	tools {
 		jdk 'jdk21'
@@ -21,7 +16,7 @@ pipeline {
 					echo 'Jar build completed successfully'
 
 					echo 'Building Docker image...'
-					image = docker.build('viditpawar/study-buddy-api-gateway')
+					def image = docker.build('viditpawar/study-buddy-api-gateway', '--platform linux/amd64,linux/arm64')
 					echo 'Docker image build completed successfully'
 				}
 			}
