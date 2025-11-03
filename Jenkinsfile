@@ -1,6 +1,10 @@
 pipeline {
 	agent any
 
+	tools {
+		jdk 'jdk21'
+	}
+
 	stages {
 		stage('Build') {
 			steps {
@@ -8,7 +12,7 @@ pipeline {
 				sh 'java -version'
 
 				echo 'Building...'
-				//sh './gradlew bootJar'
+				sh './gradlew bootJar'
 			}
 		}
 
