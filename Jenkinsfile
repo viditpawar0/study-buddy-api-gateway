@@ -3,6 +3,7 @@ pipeline {
 
 	tools {
 		jdk 'jdk21'
+		DockerTool 'docker-latest'
 	}
 
 	stages {
@@ -16,7 +17,7 @@ pipeline {
 					echo 'Jar build completed successfully'
 
 					echo 'Building Docker image...'
-					def image = docker.build('viditpawar/study-buddy-api-gateway')
+					image = docker.build('viditpawar/study-buddy-api-gateway')
 					echo 'Docker image build completed successfully'
 				}
 			}
