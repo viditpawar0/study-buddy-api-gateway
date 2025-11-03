@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-	tools {
-		jdk 'jdk24'
-	}
-
     stages {
         stage ('Build') {
             steps {
