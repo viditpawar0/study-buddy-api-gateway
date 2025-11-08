@@ -14,6 +14,9 @@ spring:
             - uri: lb://topic-trainer
               predicates:
                 - Path=/topics/**,/messages/**
+            - uri: lb://topic-evaluator
+              predicates:
+                - Path=/quiz/**
 eureka:
   client:
     service-url:

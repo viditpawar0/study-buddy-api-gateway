@@ -16,6 +16,9 @@ spring:
             - uri: lb://topic-trainer
               predicates:
                 - Path=/topics/**,/messages/**
+            - uri: lb://topic-evaluator
+              predicates:
+                - Path=/quiz/**
 
             # docker routes
             - uri: http://sb-service-registry:8761
